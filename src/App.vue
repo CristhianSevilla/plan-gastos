@@ -38,9 +38,9 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Lato", sans-serif;
-  background-image: url("/src/assets/img/1.svg");
+  background-image: url("/src/assets/img/2.svg");
   background-size: cover;
-  background-position: bottom center;
+  background-position: bottom right;
   background-repeat: no-repeat;
 }
 h1 {
