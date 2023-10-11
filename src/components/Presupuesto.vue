@@ -1,0 +1,63 @@
+<script setup></script>
+
+<template>
+  <form class="presupuesto">
+    <p>Organiza tu dinero</p>
+
+    <div class="campo">
+      <input
+        id="nuevo-presupuesto"
+        class="nuevo-presupuesto"
+        placeholder="Ingresa tu presupuesto"
+        type="number"
+      />
+    </div>
+
+    <input type="submit" value="Enviar" />
+  </form>
+</template>
+
+<style lang="css" scoped>
+.presupuesto {
+  width: 100%;
+}
+.campo {
+  display: grid;
+  gap: 2rem;
+}
+.presupuesto p {
+  font-size: 2rem;
+  color: var(--azul);
+  text-align: center;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.presupuesto input[type="number"] {
+  background-color: var(--gris-claro);
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  font-size: 2.2rem;
+  text-align: center;
+}
+.presupuesto input[type="submit"] {
+  background-color: var(--azul);
+  border: none;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  color: var(--blanco);
+  font-weight: 900;
+  width: 100%;
+  transition: background-color 300ms ease;
+  text-transform: uppercase;
+}
+
+.presupuesto input[type="submit"]:hover {
+  background-color: #1848a4;
+  cursor: pointer;
+}
+</style>
