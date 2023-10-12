@@ -1,4 +1,5 @@
 <script setup>
+import { formatearDinero } from "../helpers";
 import imagen from "../assets/img/grafico.jpg";
 
 const props = defineProps({
@@ -21,11 +22,11 @@ const props = defineProps({
       <button class="reset-app">Resetear App</button>
       <p>
         <span>Presupuesto:</span>
-        $ {{ presupuesto }}
+        {{ formatearDinero(presupuesto) }}
       </p>
       <p>
         <span>Disponible:</span>
-        ${{ disponible }}
+        {{ formatearDinero(presupuesto) }}
       </p>
       <p>
         <span>Gastado:</span>
