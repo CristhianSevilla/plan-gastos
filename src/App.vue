@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Presupuesto from "./components/Presupuesto.vue";
 import ControlPresupuesto from "./components/ControlPresupuesto.vue";
+import iconoNuevoGasto from "./assets/img/nuevo-gasto.svg";
 
 const presupuesto = ref(0);
 const disponible = ref(0);
@@ -31,7 +32,9 @@ const definirPresupuesto = (cantidad) => {
         </div>
       </div>
     </header>
-    <div class="imagen-presupuesto"></div>
+    <main v-if="presupuesto > 0" class="imagen-presupuesto crear-gasto">
+      <img :src="iconoNuevoGasto" alt="Icono Nuevo Gasto" />
+    </main>
   </div>
 </template>
 
@@ -106,5 +109,18 @@ header h1 {
   width: 90%;
   max-width: 60rem;
   margin-top: -20rem;
+}
+.crear-gasto {
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  transition: transform 0.3s ease;
+}
+.crear-gasto img {
+  width: 5rem;
+}
+.crear-gasto:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 </style>
