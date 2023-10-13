@@ -7,6 +7,8 @@ import iconoNuevoGasto from "./assets/img/nuevo-gasto.svg";
 
 const presupuesto = ref(0);
 const disponible = ref(0);
+const gastos = ref([]);
+
 const modal = reactive({
   mostrar: false,
   animar: false,
@@ -38,7 +40,10 @@ const ocultarModal = () => {
 };
 
 const guardarGasto = () => {
-  console.log("holi");
+  gastos.value.push({
+    ...gasto,
+    id: 123,
+  });
 };
 </script>
 
