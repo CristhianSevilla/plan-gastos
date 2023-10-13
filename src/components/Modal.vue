@@ -1,6 +1,36 @@
-<script setup></script>
+<script setup>
+import cerrarModal from "../assets/img/cerrar.svg";
+
+const emit = defineEmits(["ocultar-modal"]);
+</script>
 <template>
-  <div>Desde Modal</div>
+  <div class="modal">
+    <div class="cerrar-modal">
+      <img
+        :src="cerrarModal"
+        alt="cerrar modal"
+        @click="$emit('ocultar-modal')"
+      />
+    </div>
+  </div>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.modal {
+  position: absolute;
+  background-color: rgb(0 0 0 / 0.8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.cerrar-modal {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+.cerrar-modal img {
+  width: 3rem;
+  cursor: pointer;
+}
+</style>

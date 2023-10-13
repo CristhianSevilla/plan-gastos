@@ -21,38 +21,44 @@ const mostrarModal = () => {
   modal.mostrar = true;
   modal.animar = true;
 };
+const ocultarModal = () => {
+  modal.mostrar = false;
+  modal.animar = false;
+};
 </script>
 
 <template>
-  <div>
-    <header>
-      <div class="contenedor-header">
-        <h1>Planificador de Gastos</h1>
+  <div class="imagen-fondo">
+    <div class="contenido-con-scroll">
+      <header>
+        <div class="contenedor-header">
+          <h1>Planificador de Gastos</h1>
 
-        <div class="sombra">
-          <Presupuesto
-            v-if="presupuesto === 0"
-            @definir-presupuesto="definirPresupuesto"
-          />
-          <ControlPresupuesto
-            v-else
-            :presupuesto="presupuesto"
-            :disponible="disponible"
+          <div class="sombra">
+            <Presupuesto
+              v-if="presupuesto === 0"
+              @definir-presupuesto="definirPresupuesto"
+            />
+            <ControlPresupuesto
+              v-else
+              :presupuesto="presupuesto"
+              :disponible="disponible"
+            />
+          </div>
+        </div>
+      </header>
+      <main v-if="presupuesto > 0">
+        <div class="crear-gasto">
+          <img
+            :src="iconoNuevoGasto"
+            @click="mostrarModal"
+            alt="Icono Nuevo Gasto"
           />
         </div>
-      </div>
-    </header>
-    <main v-if="presupuesto > 0">
-      <div class="crear-gasto">
-        <img
-          :src="iconoNuevoGasto"
-          @click="mostrarModal"
-          alt="Icono Nuevo Gasto"
-        />
-      </div>
 
-      <Modal v-if="modal.mostrar" />
-    </main>
+        <Modal v-if="modal.mostrar" @ocultar-modal="ocultarModal" />
+      </main>
+    </div>
   </div>
 </template>
 
@@ -77,10 +83,6 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Lato", sans-serif;
-  background-image: url("/src/assets/img/2.svg");
-  background-size: cover;
-  background-position: bottom right;
-  background-repeat: no-repeat;
 }
 h1 {
   font-size: 4rem;
@@ -88,19 +90,31 @@ h1 {
 h2 {
   font-size: 3rem;
 }
+header {
+  background-color: var(--azul);
+}
 header h1 {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   padding: 3rem 0;
   margin: 0;
   color: var(--blanco);
   text-align: center;
-  background-color: var(--azul);
-  margin-bottom: 5rem;
   text-transform: capitalize;
   font-size: 3rem;
+}
+.imagen-fondo {
+  background-image: url("/src/assets/img/2.svg");
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
+.contenido-con-scroll {
+  overflow-y: scroll;
+  height: 100vh;
+  max-height: 100vh;
 }
 .contenedor {
   width: 90%;
@@ -108,25 +122,20 @@ header h1 {
   margin: 0 auto;
 }
 .contenedor-header {
-  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  width: 100%;
-  height: 100vh;
 }
 @media (min-width: 768px) {
 }
 .sombra {
-  position: absolute;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   background-color: var(--blanco);
   border-radius: 1.2rem;
   padding: 5rem;
   width: 90%;
-  max-width: 60rem;
-  margin-top: -20rem;
+  max-width: 65rem;
+  margin: 0rem auto -10rem auto;
 }
 .crear-gasto {
   position: fixed;
