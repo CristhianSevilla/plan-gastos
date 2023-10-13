@@ -14,8 +14,8 @@ const emit = defineEmits(["ocultar-modal"]);
     </div>
 
     <div class="contenedor">
-      <form>
-        <legend>Agregar Gasto</legend>
+      <form class="nuevo-gasto">
+        <legend>Nuevo Gasto</legend>
 
         <div class="campo">
           <label for="gasto">Gasto:</label>
@@ -31,7 +31,7 @@ const emit = defineEmits(["ocultar-modal"]);
           <input
             type="number"
             id="cantidad"
-            placeholder="Escribe la cantidad, ej. 300"
+            placeholder="Escribe la cantidad, Ej. 300"
           />
         </div>
 
@@ -59,7 +59,7 @@ const emit = defineEmits(["ocultar-modal"]);
 <style lang="css" scoped>
 .modal {
   position: absolute;
-  background-color: rgb(0 0 0 / 0.8);
+  background-color: rgb(0 0 0 / 0.9);
   top: 0;
   left: 0;
   right: 0;
@@ -72,7 +72,54 @@ const emit = defineEmits(["ocultar-modal"]);
   top: 3rem;
 }
 .cerrar-modal img {
-  width: 3rem;
+  width: 2.5rem;
+  cursor: pointer;
+}
+.nuevo-gasto {
+  margin: 8rem auto 0 auto;
+  display: grid;
+  gap: 2rem;
+  padding: 2.5rem;
+}
+@media (min-width: 768px) {
+  .nuevo-gasto {
+    padding: 5rem;
+  }
+}
+.nuevo-gasto legend {
+  text-align: center;
+  color: var(--blanco);
+  font-size: 3rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--azul);
+  text-transform: uppercase;
+}
+.campo {
+  display: grid;
+  gap: 2rem;
+}
+.nuevo-gasto label {
+  color: var(--blanco);
+  font-size: 2.5rem;
+}
+.nuevo-gasto input,
+.nuevo-gasto select {
+  background-color: var(--gris-claro);
+  border-radius: 1rem;
+  padding: 1rem;
+  border: none;
+  font-size: 2rem;
+}
+.nuevo-gasto input[type="submit"] {
+  background-color: var(--azul);
+  color: var(--blanco);
+  font-weight: 700;
+  margin-top: 4rem;
+  transition: background-color 300ms ease;
+}
+.nuevo-gasto input[type="submit"]:hover {
+  background-color: #1848a4;
   cursor: pointer;
 }
 </style>
