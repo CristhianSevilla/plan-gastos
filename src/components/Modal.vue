@@ -12,6 +12,47 @@ const emit = defineEmits(["ocultar-modal"]);
         @click="$emit('ocultar-modal')"
       />
     </div>
+
+    <div class="contenedor">
+      <form>
+        <legend>Agregar Gasto</legend>
+
+        <div class="campo">
+          <label for="gasto">Gasto:</label>
+          <input
+            type="text"
+            id="gasto"
+            placeholder="Escribe el Nombre del Gasto"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="cantidad">Cantidad Gastada:</label>
+          <input
+            type="number"
+            id="cantidad"
+            placeholder="Escribe la cantidad, ej. 300"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="categoria">Categoria:</label>
+
+          <select id="categoria">
+            <option value="">Selecciona una categoría</option>
+            <option value="ahorro">Ahorro</option>
+            <option value="comida">Comida</option>
+            <option value="casa">Casa</option>
+            <option value="gastos">Gastos</option>
+            <option value="ocio">Ocio</option>
+            <option value="salud">Salud</option>
+            <option value="suscripciones">Suscripciones</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Agregar Gasto" />
+      </form>
+    </div>
   </div>
 </template>
 
@@ -23,6 +64,7 @@ const emit = defineEmits(["ocultar-modal"]);
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 10;
 }
 .cerrar-modal {
   position: absolute;
