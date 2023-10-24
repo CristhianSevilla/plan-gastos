@@ -11,6 +11,10 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  gastado: {
+    type: Number,
+    required: true,
+  },
 });
 </script>
 <template>
@@ -26,11 +30,11 @@ const props = defineProps({
       </p>
       <p>
         <span>Disponible:</span>
-        {{ formatearDinero(presupuesto) }}
+        {{ formatearDinero(disponible) }}
       </p>
       <p>
         <span>Gastado:</span>
-        $0
+        {{ formatearDinero(gastado) }}
       </p>
     </div>
   </div>
@@ -67,7 +71,7 @@ const props = defineProps({
   transition-duration: 300ms;
 }
 .reset-app:hover {
-  background-color: #c21f68;
+  background-color: var(--rosa);
   cursor: pointer;
 }
 .contenedor-presupuesto {
@@ -75,13 +79,7 @@ const props = defineProps({
 }
 .contenedor-presupuesto p {
   font-size: 2.4rem;
-  text-align: center;
   color: var(--gris-oscuro);
-}
-@media (min-width: 768px) {
-  .contenedor-presupuesto p {
-    text-align: left;
-  }
 }
 .contenedor-presupuesto span {
   font-weight: 900;

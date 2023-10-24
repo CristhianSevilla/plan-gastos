@@ -44,15 +44,26 @@ const props = defineProps({
 <style lang="css" scoped>
 .gasto {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 2rem;
   cursor: pointer;
 }
 .contenido {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 2rem;
+}
+@media (min-width: 768px) {
+  .gasto {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .contenido {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 .icono {
   width: 8rem;

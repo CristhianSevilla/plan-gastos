@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 import Presupuesto from "./components/Presupuesto.vue";
 import ControlPresupuesto from "./components/ControlPresupuesto.vue";
 import Modal from "./components/Modal.vue";
@@ -10,6 +10,22 @@ import { generarId } from "./helpers";
 const presupuesto = ref(0);
 const disponible = ref(0);
 const gastos = ref([]);
+const gastado = ref(0);
+
+watch(
+  gastos,
+  () => {
+    const totalGastado = gastos.value.reduce(
+      (total, gasto) => gasto.cantidad + total,
+      0
+    );
+    gastado.value = totalGastado;
+    disponible.value = presupuesto.value - totalGastado;
+  },
+  {
+    deep: true,
+  }
+);
 
 const modal = reactive({
   mostrar: false,
@@ -76,6 +92,7 @@ const guardarGasto = () => {
               v-else
               :presupuesto="presupuesto"
               :disponible="disponible"
+              :gastado="gastado"
             />
           </div>
         </div>
@@ -114,6 +131,8 @@ const guardarGasto = () => {
 :root {
   --azul: #3167be;
   --verde: #398b13;
+  --amarillo: #dab811;
+  --rosa: #c21f68;
   --blanco: #fff;
   --gris-claro: #e6e6e6;
   --gris: #94a3b8;
@@ -181,18 +200,24 @@ header h1 {
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   background-color: var(--blanco);
   border-radius: 1.2rem;
-  padding: 5rem;
+  padding: 4rem;
   width: 90%;
-  max-width: 65rem;
-  margin: 0rem auto -10rem auto;
+  max-width: 70rem;
+  margin: 0rem auto -15rem auto;
 }
 .crear-gasto {
   position: fixed;
   bottom: 5rem;
   right: 5rem;
+  animation: pulse 2s infinite;
+
+  padding: 0;
 }
 .crear-gasto img {
   width: 5rem;
+  margin: 0;
+  border: 5px solid var(--blanco);
+  border-radius: 50%;
   transition: transform 0.3s ease;
 }
 .crear-gasto img:hover {
@@ -206,5 +231,17 @@ header h1 {
 .listado-gastos h2 {
   font-weight: 900;
   color: var(--gris-claro);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>
