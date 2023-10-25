@@ -130,15 +130,16 @@ const guardarGasto = () => {
 
 <style>
 :root {
-  --azul: #3167be;
+  --anaranjado: #df4410;
+  --anaranjado-oscuro: #c23d10;
   --verde: #398b13;
-  --amarillo: #dab811;
-  --rosa: #c21f68;
   --blanco: #fff;
+  --blanco-transparente: #ffffffd6;
   --gris-claro: #e6e6e6;
   --gris: #94a3b8;
   --gris-oscuro: #64748b;
-  --negro: #000;
+  --negro: #000000;
+  --negro-transparente: #000000d8;
 }
 html {
   font-size: 62.5%;
@@ -160,7 +161,7 @@ h2 {
   font-size: 3rem;
 }
 header {
-  background-color: var(--azul);
+  background-color: var(--negro-transparente);
 }
 header h1 {
   width: 100%;
@@ -172,9 +173,9 @@ header h1 {
   font-size: 3rem;
 }
 .imagen-fondo {
-  background-image: url("/src/assets/img/2.svg");
+  background-image: url("/src/assets/img/fondo.jpg");
   background-size: cover;
-  background-position: bottom right;
+  background-position: center center;
   background-repeat: no-repeat;
   position: fixed;
   width: 100%;
@@ -186,6 +187,7 @@ header h1 {
   overflow-y: scroll;
   height: 100vh;
   max-height: 100vh;
+  background-color: #0000002c;
 }
 .contenedor {
   width: 90%;
@@ -201,7 +203,7 @@ header h1 {
 }
 .sombra {
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  background-color: var(--blanco);
+  background-color: var(--negro);
   border-radius: 1.2rem;
   padding: 4rem;
   width: 90%;
@@ -242,7 +244,7 @@ header h1 {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);

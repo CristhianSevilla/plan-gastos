@@ -59,7 +59,7 @@ const props = defineProps({
   }
 }
 .reset-app {
-  background-color: #db2777;
+  background-color: var(--anaranjado);
   border: none;
   padding: 1rem;
   width: 100%;
@@ -71,7 +71,7 @@ const props = defineProps({
   transition-duration: 300ms;
 }
 .reset-app:hover {
-  background-color: var(--rosa);
+  background-color: var(--anaranjado-oscuro);
   cursor: pointer;
 }
 .contenedor-presupuesto {
@@ -79,10 +79,10 @@ const props = defineProps({
 }
 .contenedor-presupuesto p {
   font-size: 2.4rem;
-  color: var(--gris-oscuro);
+  color: var(--gris);
 }
 .contenedor-presupuesto span {
   font-weight: 900;
-  color: var(--azul);
+  color: var(--anaranjado);
 }
 </style>

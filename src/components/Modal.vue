@@ -186,7 +186,7 @@ const agregarGasto = () => {
   font-size: 3rem;
   font-weight: 700;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--azul);
+  border-bottom: 2px solid var(--anaranjado);
   text-transform: uppercase;
 }
 .campo {
@@ -194,7 +194,7 @@ const agregarGasto = () => {
   gap: 2rem;
 }
 .nuevo-gasto label {
-  color: var(--blanco);
+  color: var(--gris-claro);
   font-size: 2.5rem;
 }
 .nuevo-gasto input,
@@ -206,14 +206,14 @@ const agregarGasto = () => {
   font-size: 2rem;
 }
 .nuevo-gasto input[type="submit"] {
-  background-color: var(--azul);
+  background-color: var(--anaranjado);
   color: var(--blanco);
   font-weight: 700;
   margin-top: 4rem;
   transition: background-color 300ms ease;
 }
 .nuevo-gasto input[type="submit"]:hover {
-  background-color: #1848a4;
+  background-color: var(--anaranjado-oscuro);
   cursor: pointer;
 }
 </style>

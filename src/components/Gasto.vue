@@ -72,13 +72,13 @@ const props = defineProps({
   margin: 0 0 1rem 0;
 }
 .categoria {
-  color: var(--gris);
+  color: var(--gris-claro);
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 900;
 }
 .nombre {
-  color: var(--gris-oscuro);
+  color: var(--anaranjado);
   font-size: 2.4rem;
   font-weight: 700;
 }

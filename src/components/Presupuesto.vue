@@ -52,7 +52,7 @@ const definirPresupuesto = () => {
 }
 .presupuesto p {
   font-size: 2rem;
-  color: var(--azul);
+  color: var(--anaranjado);
   text-align: center;
   margin-top: 0;
   text-transform: uppercase;
@@ -68,7 +68,7 @@ const definirPresupuesto = () => {
   width: 100%;
 }
 .presupuesto input[type="submit"] {
-  background-color: var(--azul);
+  background-color: var(--anaranjado);
   border: none;
   padding: 1rem;
   text-align: center;
@@ -83,7 +83,7 @@ const definirPresupuesto = () => {
 }
 
 .presupuesto input[type="submit"]:hover {
-  background-color: #1848a4;
+  background-color: var(--anaranjado-oscuro);
   cursor: pointer;
 }
 </style>
