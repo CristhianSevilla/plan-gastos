@@ -178,6 +178,8 @@ header h1 {
   position: fixed;
   width: 100%;
   height: 100vh;
+  top: 0;
+  left: 0;
 }
 .contenido-con-scroll {
   overflow-y: scroll;
@@ -226,11 +228,12 @@ header h1 {
 }
 
 .listado-gastos {
-  margin-top: 15rem;
+  margin-top: 20rem;
 }
 .listado-gastos h2 {
   font-weight: 900;
-  color: var(--gris-claro);
+  color: var(--blanco);
+  text-align: center;
 }
 
 @keyframes pulse {
