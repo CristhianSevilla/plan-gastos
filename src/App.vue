@@ -31,6 +31,7 @@ const modal = reactive({
   mostrar: false,
   animar: false,
 });
+
 const gasto = reactive({
   nombre: "",
   cantidad: "",
@@ -38,6 +39,18 @@ const gasto = reactive({
   id: null,
   fecha: Date.now(),
 });
+
+watch(
+  modal,
+  () => {
+    if (!modal.mostrar) {
+      reiniciarModal();
+    }
+  },
+  {
+    deep: true,
+  }
+);
 
 const definirPresupuesto = (cantidad) => {
   presupuesto.value = cantidad;
@@ -64,8 +77,11 @@ const guardarGasto = () => {
   });
 
   ocultarModal();
+  reiniciarModal();
+};
 
-  //Reiniciar Formulario
+const reiniciarModal = () => {
+  //Reiniciar State de Gasto
   Object.assign(gasto, {
     nombre: "",
     cantidad: "",
