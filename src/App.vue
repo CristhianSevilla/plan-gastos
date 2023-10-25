@@ -74,6 +74,12 @@ const guardarGasto = () => {
     fecha: Date.now(),
   });
 };
+
+const seleccionarGasto = (id) => {
+  const gastoEditar = gastos.value.filter((gasto) => gasto.id === id)[0];
+  Object.assign(gasto, gastoEditar);
+  mostrarModal();
+};
 </script>
 
 <template>
@@ -102,7 +108,12 @@ const guardarGasto = () => {
         <div class="listado-gastos contenedor">
           <h2>{{ gastos.length > 0 ? "Gastos" : "No hay Gastos" }}</h2>
 
-          <Gasto v-for="gasto in gastos" :key="gasto.id" :gasto="gasto" />
+          <Gasto
+            v-for="gasto in gastos"
+            :key="gasto.id"
+            :gasto="gasto"
+            @seleccionar-gasto="seleccionarGasto"
+          />
         </div>
 
         <div class="crear-gasto">
@@ -199,8 +210,6 @@ header h1 {
   flex-direction: column;
   justify-content: center;
 }
-@media (min-width: 768px) {
-}
 .sombra {
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   background-color: var(--negro);
@@ -208,8 +217,15 @@ header h1 {
   padding: 4rem;
   width: 90%;
   max-width: 70rem;
-  margin: 0rem auto -15rem auto;
+  margin: 0rem auto -18rem auto;
 }
+@media (min-width: 768px) {
+  .sombra {
+    max-width: 70rem;
+    margin: 0rem auto -15rem auto;
+  }
+}
+
 .crear-gasto {
   position: fixed;
   bottom: 5rem;

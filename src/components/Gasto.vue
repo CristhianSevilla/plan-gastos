@@ -18,6 +18,8 @@ const diccionarioIconos = {
   suscripciones: IconoSuscripciones,
 };
 
+defineEmits(["seleccionar-gasto"]);
+
 const props = defineProps({
   gasto: {
     type: Object,
@@ -26,7 +28,7 @@ const props = defineProps({
 });
 </script>
 <template>
-  <div class="gasto sombra">
+  <div class="gasto sombra" @click="$emit('seleccionar-gasto', gasto.id)">
     <div class="contenido">
       <img :src="diccionarioIconos[gasto.categoria]" alt="" class="icono" />
       <div class="detalles">

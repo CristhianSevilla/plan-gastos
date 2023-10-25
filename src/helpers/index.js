@@ -15,7 +15,7 @@ export const formatearFecha = (fecha) => {
   const fechaNueva = new Date(fecha);
   const opciones = {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "2-digit",
   };
 
