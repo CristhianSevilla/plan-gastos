@@ -81,6 +81,7 @@ const props = defineProps({
   color: var(--anaranjado);
   font-size: 2.4rem;
   font-weight: 700;
+  text-transform: capitalize;
 }
 .fecha {
   color: var(--gris-oscuro);

@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from "vue";
 import CircleProgress from "vue3-circle-progress-bar";
 import "vue3-circle-progress-bar/dist/circle-progress-bar.css";
 import { formatearDinero } from "../helpers";
@@ -17,10 +18,18 @@ const props = defineProps({
     required: true,
   },
 });
+
+const porcentaje = computed(() => {
+  return parseInt(
+    ((props.presupuesto - props.disponible) / props.presupuesto) * 100
+  );
+});
 </script>
 <template>
   <div class="dos-columnas">
     <div class="contenedor-grafico">
+      <p class="porcentaje">{{ porcentaje }}%</p>
+
       <CircleProgress
         :is-gradient="true"
         :gradient="{
@@ -28,7 +37,7 @@ const props = defineProps({
           startColor: '#e23b04',
           stopColor: '#f5ab00',
         }"
-        :percent="50"
+        :percent="porcentaje"
         :size="200"
         :border-width="20"
         :border-bg-width="20"
@@ -88,6 +97,19 @@ const props = defineProps({
 }
 .contenedor-grafico {
   margin: 0 auto;
+  position: relative;
+}
+.porcentaje {
+  position: absolute;
+  margin: auto;
+  top: calc(50% - 1.5rem);
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 100;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--anaranjado);
 }
 .contenedor-presupuesto {
   width: 100%;

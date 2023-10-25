@@ -146,7 +146,7 @@ const agregarGasto = () => {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  z-index: 200;
 }
 .cerrar-modal {
   position: absolute;
