@@ -131,7 +131,7 @@ const guardarGasto = () => {
 <style>
 :root {
   --anaranjado: #df4410;
-  --anaranjado-oscuro: #c23d10;
+  --anaranjado-oscuro: #c25d10;
   --verde: #398b13;
   --blanco: #fff;
   --blanco-transparente: #ffffffd6;

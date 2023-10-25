@@ -1,6 +1,7 @@
 <script setup>
+import CircleProgress from "vue3-circle-progress-bar";
+import "vue3-circle-progress-bar/dist/circle-progress-bar.css";
 import { formatearDinero } from "../helpers";
-import imagen from "../assets/img/grafico.jpg";
 
 const props = defineProps({
   presupuesto: {
@@ -20,7 +21,18 @@ const props = defineProps({
 <template>
   <div class="dos-columnas">
     <div class="contenedor-grafico">
-      <img :src="imagen" />
+      <CircleProgress
+        :is-gradient="true"
+        :gradient="{
+          angle: 90,
+          startColor: '#e23b04',
+          stopColor: '#f5ab00',
+        }"
+        :percent="50"
+        :size="200"
+        :border-width="20"
+        :border-bg-width="20"
+      />
     </div>
     <div class="contenedor-presupuesto">
       <button class="reset-app">Resetear App</button>
@@ -73,6 +85,9 @@ const props = defineProps({
 .reset-app:hover {
   background-color: var(--anaranjado-oscuro);
   cursor: pointer;
+}
+.contenedor-grafico {
+  margin: 0 auto;
 }
 .contenedor-presupuesto {
   width: 100%;
