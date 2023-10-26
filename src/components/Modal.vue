@@ -8,6 +8,7 @@ const error = ref("");
 const emit = defineEmits([
   "ocultar-modal",
   "guardar-gasto",
+  "eliminar-gasto",
   "update:nombre",
   "update:cantidad",
   "update:categoria",
@@ -169,7 +170,12 @@ if (props.id) {
 
         <input type="submit" :value="texto.boton" />
 
-        <button type="button" class="btn-eliminar" v-if="props.id">
+        <button
+          type="button"
+          class="btn-eliminar"
+          v-if="props.id"
+          @click="$emit('eliminar-gasto')"
+        >
           Eliminar Gasto
         </button>
       </form>
