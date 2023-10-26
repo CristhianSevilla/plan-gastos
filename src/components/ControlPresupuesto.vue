@@ -4,6 +4,8 @@ import CircleProgress from "vue3-circle-progress-bar";
 import "vue3-circle-progress-bar/dist/circle-progress-bar.css";
 import { formatearDinero } from "../helpers";
 
+defineEmits(["reset-app"]);
+
 const props = defineProps({
   presupuesto: {
     type: Number,
@@ -44,7 +46,9 @@ const porcentaje = computed(() => {
       />
     </div>
     <div class="contenedor-presupuesto">
-      <button class="reset-app">Resetear App</button>
+      <button type="button" class="reset-app" @click="$emit('reset-app')">
+        Resetear App
+      </button>
       <p>
         <span>Presupuesto:</span>
         {{ formatearDinero(presupuesto) }}
