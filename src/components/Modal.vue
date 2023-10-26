@@ -34,11 +34,17 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  id: {
+    type: [String, null],
+    required: true,
+  },
 });
+
+const cantidadOld = props.cantidad;
 
 const agregarGasto = () => {
   //Validar que no existan campos vacios
-  const { nombre, cantidad, categoria, disponible } = props;
+  const { nombre, cantidad, categoria, disponible, id } = props;
   if ([nombre, cantidad, categoria].includes("")) {
     error.value = "Todos los campos son requeridos";
 
@@ -60,18 +66,47 @@ const agregarGasto = () => {
   }
 
   //Validar que el usuario no gaste más de lo disponible
-  if (cantidad > disponible) {
-    error.value = "Has excedido el presupuesto";
+  if (id) {
+    if (cantidad > cantidadOld + disponible) {
+      error.value = "Has excedido el presupuesto";
 
-    setTimeout(() => {
-      error.value = "";
-    }, 3000);
+      setTimeout(() => {
+        error.value = "";
+      }, 3000);
 
-    return;
+      return;
+    }
+  } else {
+    if (cantidad > disponible) {
+      error.value = "Has excedido el presupuesto";
+
+      setTimeout(() => {
+        error.value = "";
+      }, 3000);
+
+      return;
+    }
   }
 
   emit("guardar-gasto");
 };
+
+//Texto condicional del formulario
+const texto = {
+  encabezado: "",
+  boton: "",
+};
+if (props.id) {
+  Object.assign(texto, {
+    encabezado: "Editar Gasto",
+    boton: "Guardar Cambios",
+  });
+} else {
+  Object.assign(texto, {
+    encabezado: "Nuevo Gasto",
+    boton: "Agregar Gasto",
+  });
+}
 </script>
 <template>
   <div class="modal">
@@ -88,7 +123,7 @@ const agregarGasto = () => {
       :class="[modal.animar ? 'animar' : 'cerrar']"
     >
       <form class="nuevo-gasto" @submit.prevent="agregarGasto">
-        <legend>Nuevo Gasto</legend>
+        <legend>{{ texto.encabezado }}</legend>
 
         <Alerta v-if="error">{{ error }}</Alerta>
         <div class="campo">
@@ -132,7 +167,7 @@ const agregarGasto = () => {
           </select>
         </div>
 
-        <input type="submit" value="Agregar Gasto" />
+        <input type="submit" :value="texto.boton" />
       </form>
     </div>
   </div>

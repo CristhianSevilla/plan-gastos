@@ -74,7 +74,9 @@ const guardarGasto = () => {
   if (gasto.id) {
     //Editar Gasto
     const { id } = gasto;
+    //buscamos el gasto a editar por su id
     const i = gastos.value.findIndex((gasto) => gasto.id === id);
+    //creamos una copia de gasto y agregamos el objeto nuevo
     gastos.value[i] = { ...gasto };
   } else {
     //Gato Nuevo
@@ -154,6 +156,7 @@ const seleccionarGasto = (id) => {
           @guardar-gasto="guardarGasto"
           :modal="modal"
           :disponible="disponible"
+          :id="gasto.id"
           v-model:nombre="gasto.nombre"
           v-model:cantidad="gasto.cantidad"
           v-model:categoria="gasto.categoria"
