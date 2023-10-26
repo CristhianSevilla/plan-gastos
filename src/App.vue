@@ -71,10 +71,18 @@ const ocultarModal = () => {
 };
 
 const guardarGasto = () => {
-  gastos.value.push({
-    ...gasto,
-    id: generarId(),
-  });
+  if (gasto.id) {
+    //Editar Gasto
+    const { id } = gasto;
+    const i = gastos.value.findIndex((gasto) => gasto.id === id);
+    gastos.value[i] = { ...gasto };
+  } else {
+    //Gato Nuevo
+    gastos.value.push({
+      ...gasto,
+      id: generarId(),
+    });
+  }
 
   ocultarModal();
   reiniciarModal();
