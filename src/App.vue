@@ -169,7 +169,7 @@ const seleccionarGasto = (id) => {
 <style>
 :root {
   --anaranjado: #df4410;
-  --anaranjado-oscuro: #c25d10;
+  --anaranjado-oscuro: #ff6f00;
   --verde: #398b13;
   --blanco: #fff;
   --blanco-transparente: #ffffffd6;

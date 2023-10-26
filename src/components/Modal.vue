@@ -168,6 +168,10 @@ if (props.id) {
         </div>
 
         <input type="submit" :value="texto.boton" />
+
+        <button type="button" class="btn-eliminar" v-if="props.id">
+          Eliminar Gasto
+        </button>
       </form>
     </div>
   </div>
@@ -205,7 +209,7 @@ if (props.id) {
   opacity: 0;
 }
 .nuevo-gasto {
-  margin: 8rem auto 0 auto;
+  margin: 3rem auto 0 auto;
   display: grid;
   gap: 2rem;
   padding: 2.5rem;
@@ -249,6 +253,23 @@ if (props.id) {
 }
 .nuevo-gasto input[type="submit"]:hover {
   background-color: var(--anaranjado-oscuro);
+  cursor: pointer;
+}
+
+.btn-eliminar {
+  background-color: #6f0909;
+  width: 100%;
+  color: var(--blanco);
+  font-weight: 700;
+  margin-top: 4rem;
+  transition: background-color 300ms ease;
+  border-radius: 1rem;
+  padding: 0.6rem;
+  border: none;
+  font-size: 1.4rem;
+}
+.btn-eliminar:hover {
+  background-color: #ab1616;
   cursor: pointer;
 }
 </style>
