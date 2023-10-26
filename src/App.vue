@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, watch, computed } from "vue";
+import { ref, reactive, watch, computed, onMounted } from "vue";
 import Presupuesto from "./components/Presupuesto.vue";
 import ControlPresupuesto from "./components/ControlPresupuesto.vue";
 import Modal from "./components/Modal.vue";
@@ -13,6 +13,19 @@ const disponible = ref(0);
 const gastos = ref([]);
 const gastado = ref(0);
 const filtro = ref("");
+
+const modal = reactive({
+  mostrar: false,
+  animar: false,
+});
+
+const gasto = reactive({
+  nombre: "",
+  cantidad: "",
+  categoria: "",
+  id: null,
+  fecha: Date.now(),
+});
 
 watch(
   gastos,
@@ -29,19 +42,6 @@ watch(
   }
 );
 
-const modal = reactive({
-  mostrar: false,
-  animar: false,
-});
-
-const gasto = reactive({
-  nombre: "",
-  cantidad: "",
-  categoria: "",
-  id: null,
-  fecha: Date.now(),
-});
-
 watch(
   modal,
   () => {
@@ -53,6 +53,22 @@ watch(
     deep: true,
   }
 );
+
+//Este watch de presupuesto no tiene un deep, porque no es un objeto
+watch(presupuesto, () => {
+  //ponemos el presupuesto en el LS
+  localStorage.setItem("presupuesto", presupuesto.value);
+});
+
+onMounted(() => {
+  //Obtenemos el presupuesto del LS
+  const presupuestoStorage = localStorage.getItem("presupuesto");
+  //Si existe un presupuesto lo asignamos al State de presupuesto
+  if (presupuestoStorage) {
+    presupuesto.value = Number(presupuestoStorage);
+    disponible.value = Number(presupuestoStorage);
+  }
+});
 
 const definirPresupuesto = (cantidad) => {
   presupuesto.value = cantidad;
