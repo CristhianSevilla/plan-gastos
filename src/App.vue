@@ -36,6 +36,9 @@ watch(
     );
     gastado.value = totalGastado;
     disponible.value = presupuesto.value - totalGastado;
+
+    //Alamacenar los gastos en LS
+    localStorage.setItem("gastos", JSON.stringify(gastos.value));
   },
   {
     deep: true,
@@ -67,6 +70,12 @@ onMounted(() => {
   if (presupuestoStorage) {
     presupuesto.value = Number(presupuestoStorage);
     disponible.value = Number(presupuestoStorage);
+  }
+
+  //Colocar los gastos del LS en el state de gastos
+  const gastosStorage = localStorage.getItem("gastos");
+  if (gastosStorage) {
+    gastos.value = JSON.parse(gastosStorage);
   }
 });
 
@@ -168,7 +177,7 @@ const gastosFiltrados = computed(() => {
         <Filtros v-model:filtro="filtro" />
 
         <div class="listado-gastos contenedor">
-          <h2>{{ gastosFiltrados.length > 0 ? "Gastos" : "No hay Gastos" }}</h2>
+          <h2>{{ gastosFiltrados.length > 0 ? "" : "No hay Gastos" }}</h2>
 
           <Gasto
             v-for="gasto in gastosFiltrados"
