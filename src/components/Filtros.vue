@@ -13,7 +13,7 @@ defineEmits(["update:filtro"]);
           :value="filtro"
           @input="$emit('update:filtro', $event.target.value)"
         >
-          <option value="">Selecciona una categoría</option>
+          <option value="">Todos los gastos</option>
           <option value="ahorro">Ahorro</option>
           <option value="comida">Comida</option>
           <option value="casa">Casa</option>
