@@ -223,7 +223,7 @@ const gastosFiltrados = computed(() => {
   --gris: #94a3b8;
   --gris-oscuro: #64748b;
   --negro: #000000;
-  --negro-transparente: #000000d8;
+  --negro-transparente: #000000e2;
 }
 html {
   font-size: 62.5%;
@@ -271,7 +271,7 @@ header h1 {
   overflow-y: scroll;
   height: 100vh;
   max-height: 100vh;
-  background-color: #0000002c;
+  background-color: #00000044;
 }
 .contenedor {
   width: 90%;
