@@ -160,8 +160,8 @@ if (props.id) {
             <option value="">Todas las categorías</option>
             <option value="accesorios">Accesorios</option>
             <option value="ahorro">Ahorro</option>
-            <option value="comida">Alimentación</option>
             <option value="casa">Casa</option>
+            <option value="comida">Comida</option>
             <option value="deudas">Deudas</option>
             <option value="estetica">Estética</option>
             <option value="eventos">Eventos</option>
