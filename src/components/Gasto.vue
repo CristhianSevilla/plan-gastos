@@ -4,18 +4,36 @@ import IconoAhorro from "../assets/img/icono_ahorro.svg";
 import IconoCasa from "../assets/img/icono_casa.svg";
 import IconoComida from "../assets/img/icono_comida.svg";
 import IconoGastos from "../assets/img/icono_gastos.svg";
-import IconoOcio from "../assets/img/icono_ocio.svg";
+import IconoHobbies from "../assets/img/icono_hobbies.svg";
 import IconoSalud from "../assets/img/icono_salud.svg";
 import IconoSuscripciones from "../assets/img/icono_suscripciones.svg";
+import IconoRopa from "../assets/img/icono_ropa.svg";
+import IconoDeudas from "../assets/img/icono_deudas.svg";
+import IconoImpuestos from "../assets/img/icono_impuestos.svg";
+import IconoTransporte from "../assets/img/icono_transporte.svg";
+import IconoMascotas from "../assets/img/icono_mascotas.svg";
+import IconoViajes from "../assets/img/icono_viajes.svg";
+import IconoEstetica from "../assets/img/icono_cuidadopersonal.svg";
+import IconoAccesorios from "../assets/img/icono_accesorios.svg";
+import IconoEventos from "../assets/img/icono_eventos.svg";
 
 const diccionarioIconos = {
   ahorro: IconoAhorro,
   comida: IconoComida,
   casa: IconoCasa,
   gastos: IconoGastos,
-  ocio: IconoOcio,
+  hobbies: IconoHobbies,
   salud: IconoSalud,
   suscripciones: IconoSuscripciones,
+  ropa: IconoRopa,
+  impuestos: IconoImpuestos,
+  deudas: IconoDeudas,
+  transporte: IconoTransporte,
+  viajes: IconoViajes,
+  estetica: IconoEstetica,
+  mascotas: IconoMascotas,
+  accesorios: IconoAccesorios,
+  eventos: IconoEventos,
 };
 
 defineEmits(["seleccionar-gasto"]);

@@ -157,14 +157,23 @@ if (props.id) {
             :value="categoria"
             @input="$emit('update:categoria', $event.target.value)"
           >
-            <option value="">Selecciona una categoría</option>
+            <option value="">Todas las categorías</option>
+            <option value="accesorios">Accesorios</option>
             <option value="ahorro">Ahorro</option>
-            <option value="comida">Comida</option>
+            <option value="comida">Alimentación</option>
             <option value="casa">Casa</option>
+            <option value="deudas">Deudas</option>
+            <option value="estetica">Estética</option>
+            <option value="eventos">Eventos</option>
             <option value="gastos">Gastos</option>
-            <option value="ocio">Ocio</option>
+            <option value="hobbies">Hobbies</option>
+            <option value="impuestos">Impuestos</option>
+            <option value="mascotas">Mascotas</option>
+            <option value="ropa">Ropa</option>
             <option value="salud">Salud</option>
             <option value="suscripciones">Suscripciones</option>
+            <option value="transporte">Transporte</option>
+            <option value="viajes">Viajes</option>
           </select>
         </div>
 
